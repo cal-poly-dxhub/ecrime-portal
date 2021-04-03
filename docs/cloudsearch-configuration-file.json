@@ -1,0 +1,19 @@
+[
+  {
+    "type": "add",
+    "id": "0",
+    "fields": {
+      "content": "DxHub Sample Warrant",
+      "county": "San Luis Obispo",
+      "creation_year": "Twenty-Twenty",
+      "is_template": 0,
+      "state": "CA",
+      "subject_of_search": ["Cal Poly", "DxHub"],
+      "subjects_of_search": ["Tanner Larson", "Al Alamsi"],
+      "types_of_crime": ["computer hacking", ""],
+      "types_of_data": ["IP Address", "slack messages"],
+      "upload_timestamp": "2019-07-31T15:08:00Z",
+      "votes": 0
+    }
+  }
+]

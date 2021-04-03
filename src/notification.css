@@ -1,0 +1,27 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: -70px;
+  }
+  100% {
+    opacity: 1;
+    top: 0px;
+  }
+}
+
+.notificationAnim {
+  top: -70px;
+  opacity: 0;
+}
+
+.fadeIn {
+  top: 0px;
+  opacity: 1;
+  animation: fadeIn 0.5s linear;
+}
+
+.fadeOut {
+  top: -70px;
+  opacity: 0;
+  transition: 0.25s;
+}

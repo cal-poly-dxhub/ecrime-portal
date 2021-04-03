@@ -1,0 +1,124 @@
+type Subject @model {
+  id: ID!
+  name: String!
+  dataTypes: [DataType] @connection(name: "SubjectDataTypes")
+  requestDescription: String
+  privacyPolicyUrl: String
+  unapprovedWarrants: [UnapprovedWarrant]
+    @connection(name: "SubjectUnapprovedWarrants")
+  approvedWarrants: [ApprovedWarrant]
+    @connection(name: "SubjectApprovedWarrants")
+  unapprovedWarrantsTemp: [SubjectUnapprovedWarrant]
+    @connection(name: "SubjectUnapprovedW")
+  approvedWarrantsTemp: [SubjectApprovedWarrant]
+    @connection(name: "SubjectApprovedW")
+  tips: [Tip] @connection(name: "SubjectTips")
+}
+
+type DataType @model {
+  id: ID!
+  type: String!
+  endorsements: [String]
+  subjects: Subject @connection(name: "SubjectDataTypes")
+}
+
+type Crime @model {
+  id: ID!
+  name: String!
+  count: Int!
+}
+
+# a join table for Subject and Unapproved Warrant
+type SubjectUnapprovedWarrant @model(queries: null) {
+  id: ID!
+  subject: Subject! @connection(name: "SubjectUnapprovedW")
+  warrant: UnapprovedWarrant! @connection(name: "WarrantUnapprovedW")
+}
+
+type UnapprovedWarrant
+  @model
+  @searchable
+  @auth(
+    rules: [
+      {
+        allow: groups
+        groups: ["Moderator"]
+        queries: [get, list]
+        mutations: [create, update, delete]
+      }
+      {
+        allow: groups
+        groups: ["Explorer"]
+        queries: null
+        mutations: [create]
+      }
+    ]
+  ) {
+  id: ID!
+  content: String
+  county: String
+  creationYear: String
+  isTemplate: Int
+  state: String
+  subject: Subject @connection(name: "SubjectUnapprovedWarrants")
+  subjects: [SubjectUnapprovedWarrant] @connection(name: "WarrantUnapprovedW")
+  crimes: [String]
+  dataTypes: [String]
+  uploadTimestamp: String!
+  votes: Int
+}
+
+# a join table for Subject and Approved Warrant
+type SubjectApprovedWarrant @model(queries: null) {
+  id: ID!
+  subject: Subject! @connection(name: "SubjectApprovedW")
+  warrant: ApprovedWarrant! @connection(name: "WarrantApprovedW")
+}
+
+type ApprovedWarrant
+  @model
+  @searchable 
+  @auth(
+    rules: [
+      {
+        allow: groups
+        groups: ["Moderator"]
+        queries: [get, list]
+        mutations: [create, update, delete]
+      }
+    ]
+  ) {
+  id: ID!
+  content: String!
+  county: String
+  creationYear: String
+  isTemplate: Int
+  state: String
+  subject: Subject @connection(name: "SubjectApprovedWarrants")
+  subjects: [SubjectApprovedWarrant] @connection(name: "WarrantApprovedW")
+  subjectName: String
+  subjectNames: [String]
+  crimes: [String]
+  dataTypes: [String]
+  votes: Int
+  uploadTimestamp: String!
+}
+
+type Tip @model {
+  id: ID!
+  authorEmail: String!
+  authorName: String
+  body: String
+  source: String
+  subject: Subject @connection(name: "SubjectTips")
+  headline: String
+  votes: Int
+  createAt: String
+}
+
+type Feedbacks @model {
+  id: ID!
+  content: String!
+  user: String!
+  version: String!
+}

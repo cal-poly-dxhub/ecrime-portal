@@ -1,0 +1,63 @@
+{
+    "paths": [
+        {
+            "name": "/warrant",
+            "lambdaFunction": "searchWarrants",
+            "privacy": {
+                "userPoolGroups": {
+                    "Explorer": [
+                        "/GET"
+                    ],
+                    "Moderator": [
+                        "/GET"
+                    ]
+                }
+            }
+        }
+    ],
+    "resourceName": "api776dd70e",
+    "apiName": "api776dd70e",
+    "authResourceName": "Cognito",
+    "functionArns": [
+        {
+            "lambdaFunction": "searchWarrants"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-ecrime-dev-174543-authRole",
+        "unAuthRoleName": "amplify-ecrime-dev-174543-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "searchWarrants",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "auth",
+            "resourceName": "Cognito",
+            "attributes": [
+                "UserPoolId"
+            ]
+        },
+        {
+            "category": "auth",
+            "resourceName": "userPoolGroups",
+            "attributes": [
+                "ExplorerGroupRole"
+            ]
+        },
+        {
+            "category": "auth",
+            "resourceName": "userPoolGroups",
+            "attributes": [
+                "ModeratorGroupRole"
+            ]
+        }
+    ]
+}

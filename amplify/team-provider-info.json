@@ -1,0 +1,26 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-ecrime-dev-174543-authRole",
+            "UnauthRoleArn": "arn:aws:iam::959616474350:role/amplify-ecrime-dev-174543-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::959616474350:role/amplify-ecrime-dev-174543-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-ecrime-dev-174543-deployment",
+            "UnauthRoleName": "amplify-ecrime-dev-174543-unauthRole",
+            "StackName": "amplify-ecrime-dev-174543",
+            "StackId": "arn:aws:cloudformation:us-west-2:959616474350:stack/amplify-ecrime-dev-174543/0575fdb0-bd55-11ea-97e5-06c1882c17fc",
+            "AmplifyAppId": "dlwjktxdm3wc8"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "dlwjktxdm3wc8",
+                    "type": "manual"
+                }
+            },
+            "auth": {
+                "Cognito": {}
+            }
+        }
+    }
+}

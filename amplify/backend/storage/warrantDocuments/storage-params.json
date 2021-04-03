@@ -1,0 +1,14 @@
+{
+    "groupPermissionMap": {
+        "Explorer": [
+            "create/update",
+            "read",
+            "delete"
+        ],
+        "Moderator": [
+            "create/update",
+            "read",
+            "delete"
+        ]
+    }
+}

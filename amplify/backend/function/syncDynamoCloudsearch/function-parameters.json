@@ -1,0 +1,15 @@
+{
+  "mutableParametersState": {
+    "permissions": {
+      "storage": {
+        "ApprovedWarrant:@model(appsync)": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  },
+  "lambdaLayers": []
+}
