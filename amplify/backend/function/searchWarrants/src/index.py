@@ -4,7 +4,7 @@ import boto3, os
 def search(query):
   search_endpoint = os.environ["SEARCH_ENDPOINT"]
   region = os.environ["REGION"]
-  csd = boto3.client('cloudsearchdomain', endpoint_url=search_endpoint, region_name=region_name)
+  csd = boto3.client('cloudsearchdomain', endpoint_url=search_endpoint, region_name=region)
   
   returnFields = "votes,subjects_of_search,subject_of_search,upload_timestamp,state,county,is_template,types_of_data,creation_year,types_of_crime,_score"
   highlight = {"content": {"format": "text", "max_phrases": 3, "pre_tag": "**", "post_tag": "**"}}
